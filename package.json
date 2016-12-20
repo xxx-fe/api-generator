@@ -6,8 +6,10 @@
   "dependencies": {
     "babel-eslint": "^7.1.1",
     "bufferhelper": "^0.2.1",
+    "cheerio": "^0.22.0",
     "ejs": "^2.5.5",
     "eslint": "^3.11.1",
+    "iconv-lite": "^0.4.15",
     "js-yaml": "^3.7.0",
     "koa": "next",
     "koa-body": "next",

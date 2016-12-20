@@ -9,7 +9,7 @@ module.exports = async function(ctx){
     //await articlePad.update(6,{title:'test123',content:'tt-text'}); //修改
     //await articlePad.delete(5); // 删除
 
-    var list = await articlePad.getList();
+    const list = await articlePad.getList();
 
     //ctx.body = list;
     ctx.render({list:list},'index');
