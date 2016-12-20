@@ -16,35 +16,38 @@ const _cpath      = '../'+ setting.path.controller +'/';
 
 const routersPad = {
     init: function(){
-        //首页
-        router.get('/',async (ctx,next) => {
-            //
-            await this.bindController('index',ctx,next);
-        });
+        // //首页
+        // router.get('/',async (ctx,next) => {
+        //     //
+        //     await this.bindController('index',ctx,next);
+        // });
+        // //显示
+        // router.get('/show/:id',async (ctx,next) => {
+        //     //
+        //     await this.bindController('show',ctx,next);
+        // });
+        // //编辑
+        // router.get('/edit/:id',async (ctx,next) => {
+        //     //
+        //     await this.bindController('edit',ctx,next);
+        // });
+        // //新增
+        // router.get('/edit',async (ctx,next) => {
+        //     //
+        //     await this.bindController('edit',ctx,next);
+        // });
+        // //保存
+        // router.post('/edit',async (ctx,next) => {
+        //     //
+        //     await this.bindController('edit',ctx,next);
+        // });
 
-        //显示
-        router.get('/show/:id',async (ctx,next) => {
+        //api start
+        router.get('/book/catalog',async (ctx,next) => {
             //
-            await this.bindController('show',ctx,next);
+            await this.bindController('book',ctx,next);
         });
-
-        //编辑
-        router.get('/edit/:id',async (ctx,next) => {
-            //
-            await this.bindController('edit',ctx,next);
-        });
-
-        //新增
-        router.get('/edit',async (ctx,next) => {
-            //
-            await this.bindController('edit',ctx,next);
-        });
-
-        //保存
-        router.post('/edit',async (ctx,next) => {
-            //
-            await this.bindController('edit',ctx,next);
-        });
+        //api end
 
         //404页面
         router.get('/404',async (ctx,next) => {

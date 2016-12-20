@@ -1,5 +1,6 @@
 /**
- *@fileOverview tool 工具类
+ * @fileOverview tool 工具类
+ * @auth subying
 */
 const request       = require('request');
 //const BufferHelper  = require('bufferhelper');
