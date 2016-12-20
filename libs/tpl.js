@@ -13,8 +13,8 @@ const setting   = require('./setting');
 const viewsPath = '../'+setting.path.views;
 
 module.exports = function(data, tpl, status){
-    var file = path.join(__dirname, viewsPath, tpl+'.html');
-    var _html;
+    const file = path.join(__dirname, viewsPath, tpl+'.html');
+    let _html = null;
     _.extend(this._data, data);
     this.status = status || 200;
 

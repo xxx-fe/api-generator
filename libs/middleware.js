@@ -7,7 +7,7 @@ const logger      = log4js.getLogger('router');
 
 const tpl         = require('./tpl');
 
-module.exports = (ctx)=>{
+module.exports = (ctx) => {
     logger.info(ctx.request.url,ctx.headers['user-agent']);
 
     //
