@@ -1,0 +1,7 @@
+db:
+    file: 'm.db' #数据库文件名称
+path:
+    controller: 'controller' #控制器文件夹名称
+    views: 'views' #视图文件夹名称
+server:
+    port: 3000 #服务器端口

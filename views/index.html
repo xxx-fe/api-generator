@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="utf-8" />
+        <title>Full example - Editor.md examples</title>
+    </head>
+    <body>
+        <ul>
+            <%list.map((item)=>{%>
+                <li><a href="show/<%=item.article_id%>"><%=item.article_title%></a>-<%=item.update_time%></li>
+            <%})%>
+        </ul>
+    </body>
+</html>
