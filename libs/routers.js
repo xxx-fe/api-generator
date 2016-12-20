@@ -45,8 +45,25 @@ const routersPad = {
         //api start
         router.get('/book/catalog',async (ctx,next) => {
             //
-            await this.bindController('book',ctx,next);
+            await this.bindController('book/catalog',ctx,next);
         });
+        router.get('/book/list/:id',async (ctx,next) => { //某分类列表
+            //
+            await this.bindController('book/list',ctx,next);
+        });
+        router.get('/book/list/:id/:page',async (ctx,next) => { //某分类列表-分页
+            //
+            await this.bindController('book/list',ctx,next);
+        });
+        router.get('/book/dir/:id',async (ctx,next) => { //某小说目录
+            //
+            await this.bindController('book/dir',ctx,next);
+        });
+        router.get('/book/detail/:sid/:id/:pageId',async (ctx,next) => { //某章节内容
+            //
+            await this.bindController('book/detail',ctx,next);
+        });
+
         //api end
 
         //404页面
