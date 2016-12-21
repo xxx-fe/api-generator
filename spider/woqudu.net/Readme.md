@@ -1,4 +1,5 @@
 ### 接口说明
+##### 路由定义使用的是koa-router定义方式
 
 #### 获取分类
  * url: /book/catalog  
@@ -18,7 +19,7 @@
 
 
 #### 获取分类下的列表
- * url: /book/list/id  
+ * url: /book/list/:id  
  * method: GET  
  * param: id 为分类id  
  * returns:
@@ -35,7 +36,7 @@
 ```
 
 #### 获取小说的目录
- * url: /book/dir/id  
+ * url: /book/dir/:id  
  * method: GET  
  * param: id 为列表返回的id  
  * returns:
@@ -54,7 +55,7 @@
 ```
 
 #### 获取某章节具体内容
- * url: /book/show/sid/id/pageId  
+ * url: /book/show/:sid/:id/:pageId  
  * method: GET  
  * param: sid、id、pageId 为目录返回的sid id  pageId
  * returns:

@@ -70,6 +70,15 @@ const routersPad = {
         });
         router.get('/bookzw/list/:id/:page', async (ctx,next) => {  // 分类列表
             await this.bindController('bookzw/list', ctx, next);
+
+        //it
+        router.get('/it/project/list/:page',async (ctx,next) => { //某分类列表
+            //
+            await this.bindController('it/project/list',ctx,next);
+        });
+        router.get('/it/project/detail/:id/:name',async (ctx,next) => { //某分类列表
+            //
+            await this.bindController('it/project/detail',ctx,next);
         });
 
         //api end
