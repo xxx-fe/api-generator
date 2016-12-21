@@ -64,6 +64,14 @@ const routersPad = {
             await this.bindController('book/detail',ctx,next);
         });
 
+        // 抓取 http://m.37zw.com/ api start
+        router.get('/bookzw/catalog', async (ctx,next) => {
+            await this.bindController('bookzw/catalog', ctx,next);
+        });
+        router.get('/bookzw/list/:id/:page', async (ctx,next) => {  // 分类列表
+            await this.bindController('bookzw/list', ctx, next);
+        });
+
         //api end
 
         //404页面
