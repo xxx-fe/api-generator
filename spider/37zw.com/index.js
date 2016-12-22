@@ -73,11 +73,27 @@ exports.getList = async (id,page) => {
     const listCnt = $('.cover').find('p');
     listCnt.map((index, obj) => {
         const $elem = $(obj);
-        let _href = null;
         let _match = [];
-        if(index>=0){
-            
-        }
+        let _type = $elem.find('a').eq(0).text();
+        // _type = _type.replace(/(\[|\])/g, '');
+        _type = _type.replace(/^\[|\]$/g, '');
+        const _name = $elem.find('a').eq(1).text();
+        const _href = $elem.find('a').eq(1).attr('href');
+        _match = _href.match(/(\d+)/g);
+        let _author = $elem.text();
+        const reg = /\/([\s\S]*)/;   // 匹配 \ 后面的内容
+        _author = reg.exec(_author)[1];
+        _list.push({
+            type: _type,
+            name: _name,
+            sid: _match[0],     //
+            listId: _match[1],   // 小说列表ID
+            author: _author
+        });
         return true;
+    });
+    return JSON.stringify({
+        code: 0,
+        data: _list
     });
 };

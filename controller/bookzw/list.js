@@ -9,5 +9,5 @@ module.exports = async function(ctx){
 
     const data = await api.getList(_id, _page);
 
-    ctx.body = 'asf';
+    ctx.body = data;
 };
