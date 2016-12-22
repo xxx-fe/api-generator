@@ -69,4 +69,15 @@ exports.getList = async (id,page) => {
     content = await tool.getHttpContent(_url);
     content = Iconv.decode(content, 'gb2312');
     const $ = cheerio.load(content);
+
+    const listCnt = $('.cover').find('p');
+    listCnt.map((index, obj) => {
+        const $elem = $(obj);
+        let _href = null;
+        let _match = [];
+        if(index>=0){
+            
+        }
+        return true;
+    });
 };
