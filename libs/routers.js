@@ -81,6 +81,10 @@ const routersPad = {
             //
             await this.bindController('it/project/detail',ctx,next);
         });
+        router.get('/it/zhaopin/list/:page',async (ctx,next) => { //招聘列表
+            //
+            await this.bindController('it/zhaopin/list',ctx,next);
+        });
 
         //api end
 
