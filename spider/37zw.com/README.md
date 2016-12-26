@@ -22,6 +22,9 @@
 ```json
 {
     "code": 0,
+    "curpage": "1",
+    "total": "97",
+    "pageSize": "20",
     "data": [
         {
             "type": "玄幻小说",

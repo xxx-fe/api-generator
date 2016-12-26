@@ -79,21 +79,28 @@ exports.getList = async (id,page) => {
         _type = _type.replace(/^\[|\]$/g, '');
         const _name = $elem.find('a').eq(1).text();
         const _href = $elem.find('a').eq(1).attr('href');
-        _match = _href.match(/(\d+)/g);
         let _author = $elem.text();
         const reg = /\/([\s\S]*)/;   // 匹配 \ 后面的内容
+        _match = _href.match(/(\d+)/g);
         _author = reg.exec(_author)[1];
         _list.push({
             type: _type,
             name: _name,
             sid: _match[0],     //
             listId: _match[1],   // 小说列表ID
-            author: _author
+            author: _author,
         });
         return true;
     });
+
+    //分页信息
+    let _pageCnt = $('.page').eq(1).text();
+    _pageCnt = _pageCnt.match(/(\d+)/g);
     return JSON.stringify({
         code: 0,
+        curpage: _pageCnt[0],
+        total: _pageCnt[1],
+        pageSize: _pageCnt[2],
         data: _list
     });
 };
