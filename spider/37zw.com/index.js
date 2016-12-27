@@ -104,3 +104,27 @@ exports.getList = async (id,page) => {
         data: _list
     });
 };
+
+/**
+ * @description 抓取小说目录
+ * @param  {[string]}  id   [分类ID]
+ * @param  {[string]}  sid [小说id]
+ * @returns {Object}
+ */
+exports.getDir = async (id,sid) => {
+    const _list = [];
+    const _info = [];
+    const _url = webSite + '/' + id + '' + sid;
+    let content = '';
+    content = await tool.getHttpContent(_url);
+    content = Iconv.decode(content, 'gb2312');
+    const $ = cheerio.load(content);
+
+    return JSON.stringify({
+        code: 0,
+        info: {
+            thumb: $('.block_img2').find('img').attr('href'),
+            name: $('.block_txt2 h2').text()
+        }
+    });
+};

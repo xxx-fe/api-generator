@@ -71,6 +71,9 @@ const routersPad = {
         router.get('/bookzw/list/:id/:page', async (ctx,next) => {  // 分类列表
             await this.bindController('bookzw/list', ctx, next);
         });
+        router.get('/bookzw/dir/:id/:sid', async (ctx,next) => {  // 小说目录
+            await this.bindController('bookzw/dir', ctx, next);
+        });
 
         //it
         router.get('/it/project/list/:page',async (ctx,next) => { //某分类列表
