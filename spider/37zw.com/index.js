@@ -113,18 +113,38 @@ exports.getList = async (id,page) => {
  */
 exports.getDir = async (id,sid) => {
     const _list = [];
-    const _info = [];
-    const _url = webSite + '/' + id + '' + sid;
+    const _url = webSite + '/' + id + '/' + sid;
     let content = '';
     content = await tool.getHttpContent(_url);
     content = Iconv.decode(content, 'gb2312');
     const $ = cheerio.load(content);
 
+    const listCnt = $('.chapter').find('li');
+    listCnt.map((index, obj) => {
+        const $elem = $(obj);
+        let _match = [];
+        const _href = $elem.find('a').attr('href');
+        _match = _href.match(/(\d+)/g);
+        _list.push({
+            name: $elem.find('a').text(),
+            id: _match[0],
+            sid: _match[1],
+            aid: _match[2]
+        });
+        return true;
+    });
     return JSON.stringify({
         code: 0,
         info: {
-            thumb: $('.block_img2').find('img').attr('href'),
-            name: $('.block_txt2 h2').text()
-        }
+            thumb: $('.block_img2').find('img').attr('src'),
+            name: $('.block_txt2 h2').text(),
+            introInfo: $('.intro_info').text(),
+            author: $('.block_txt2').find('p').eq(1).text(),
+            sorts:  $('.block_txt2').find('p').eq(2).text(),
+            start: $('.block_txt2').find('p').eq(3).text(),
+            update: $('.block_txt2').find('p').eq(4).text(),
+            newest: $('.block_txt2').find('p').eq(5).text(),
+        },
+        list: _list
     });
 };
