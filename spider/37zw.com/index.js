@@ -64,7 +64,7 @@ exports.getCatalog = async () => {
  */
 exports.getList = async (id,page) => {
     const _list = [];
-    const _url = webSite + '/sort/' + id + '_' + page;
+    const _url = webSite + '/sort/' + id + '_' + page + '/';
     let content = '';
     content = await tool.getHttpContent(_url);
     content = Iconv.decode(content, 'gb2312');
@@ -113,7 +113,7 @@ exports.getList = async (id,page) => {
  */
 exports.getDir = async (id,sid) => {
     const _list = [];
-    const _url = webSite + '/' + id + '/' + sid;
+    const _url = webSite + '/' + id + '/' + sid + '/';
     let content = '';
     content = await tool.getHttpContent(_url);
     content = Iconv.decode(content, 'gb2312');
@@ -135,17 +135,19 @@ exports.getDir = async (id,sid) => {
     });
     return JSON.stringify({
         code: 0,
-        info: {
-            thumb: $('.block_img2').find('img').attr('src'),
-            name: $('.block_txt2 h2').text(),
-            introInfo: $('.intro_info').text(),
-            author: $('.block_txt2').find('p').eq(1).text(),
-            sorts:  $('.block_txt2').find('p').eq(2).text(),
-            start: $('.block_txt2').find('p').eq(3).text(),
-            update: $('.block_txt2').find('p').eq(4).text(),
-            newest: $('.block_txt2').find('p').eq(5).text(),
-        },
-        list: _list
+        data: {
+            info: {
+                thumb: $('.block_img2').find('img').attr('src'),
+                name: $('.block_txt2 h2').text(),
+                introInfo: $('.intro_info').text(),
+                author: $('.block_txt2').find('p').eq(1).text(),
+                sorts:  $('.block_txt2').find('p').eq(2).text(),
+                start: $('.block_txt2').find('p').eq(3).text(),
+                update: $('.block_txt2').find('p').eq(4).text(),
+                newest: $('.block_txt2').find('p').eq(5).text(),
+            },
+            list: _list
+        }
     });
 };
 
