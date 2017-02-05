@@ -76,7 +76,7 @@ exports.getList = async (id,page) => {
         let _match = [];
         let _type = $elem.find('a').eq(0).text();
         // _type = _type.replace(/(\[|\])/g, '');
-        _type = _type.replace(/^\[|\]$/g, '');
+        _type = _type.replace(/^\[|\\]$/g, '');
         const _name = $elem.find('a').eq(1).text();
         const _href = $elem.find('a').eq(1).attr('href');
         let _author = $elem.text();
