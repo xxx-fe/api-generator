@@ -87,7 +87,11 @@ const routersPad = {
             //
             await this.bindController('it/project/detail',ctx,next);
         });
-        router.get('/it/zhaopin/list/:page',async (ctx,next) => { //招聘列表
+        router.get('/it/zhaopin/jobs/:id',async (ctx,next) => { //招聘详情 因为列表的url规则会包含了详情的规则所以放在列表的规则之前
+            //
+            await this.bindController('it/zhaopin/detail',ctx,next);
+        });
+        router.get('/it/zhaopin/:city/:page',async (ctx,next) => { //招聘列表
             //
             await this.bindController('it/zhaopin/list',ctx,next);
         });
