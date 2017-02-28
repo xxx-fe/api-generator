@@ -2,13 +2,24 @@
 <html lang="zh">
     <head>
         <meta charset="utf-8" />
-        <title>Full example - Editor.md examples</title>
+        <title>api首页</title>
+        <style>
+        body {
+            background: #f0f1f3;
+            font-family: "Helvetica Neue",Helvetica,Arial,"Hiragino Sans GB","Hiragino Sans GB W3","WenQuanYi Micro Hei",sans-serif
+        }
+        </style>
     </head>
     <body>
-        <ul>
+        <div class="container">
+            <h1 class="tit">欢迎来到api.youmeixun.com</h1>
+            <div class="info">这里的api会持续更新，敬请关注...</div>
+            <div class="golink">所有的api文档，请直接查看文件夹下面的.md文件： <a href="https://github.com/xxx-fe/api-generator/tree/master/spider" target="_blank" target>api文档</a></div>
+        </div>
+        <!-- <ul>
             <%list.map((item)=>{%>
                 <li><a href="show/<%=item.article_id%>"><%=item.article_title%></a>-<%=item.update_time%></li>
             <%})%>
-        </ul>
+        </ul> -->
     </body>
 </html>

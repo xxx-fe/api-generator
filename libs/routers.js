@@ -17,10 +17,9 @@ const _cpath      = '../'+ setting.path.controller +'/';
 const routersPad = {
     init: function(){
         // //首页
-        // router.get('/',async (ctx,next) => {
-        //     //
-        //     await this.bindController('index',ctx,next);
-        // });
+        router.get('/',async (ctx,next) => {
+            await this.bindController('index',ctx,next);
+        });
         // //显示
         // router.get('/show/:id',async (ctx,next) => {
         //     //
