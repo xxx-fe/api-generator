@@ -2,10 +2,10 @@
  *@fileOverview it软件资讯
  *@auth subying
 */
-const book  = require('../../../spider/oschina.net/projectNews');
+const it  = require('../../../spider/oschina.net/projectNews');
 
 module.exports = async function(ctx){
-    const data = await book.getList(ctx.params);
+    const data = await it.getList(ctx.params);
 
     ctx.body = data;
 };
