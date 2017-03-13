@@ -165,11 +165,25 @@ exports.getShow = async (id,aid,sid) => {
     content = await tool.getHttpContent(_url);
     content = Iconv.decode(content, 'gb2312');
     const $ = cheerio.load(content);
+    const bodyCnt = $('#nr1').text().replace('(三七中文 www.37zw.com)', '');
+    // 获取上一页有下一页数据
+    let _matchPrev = [];
+    let _matchNext = [];
+    const prev = $('#pb_prev').attr('href');
+    const next = $('#pb_next').attr('href');
+    _matchPrev = prev.match(/(\d+)/g);
+    _matchNext = next.match(/(\d+)/g);
     return JSON.stringify({
         code: 0,
         data: {
+            other: {
+                id: _matchPrev[0],
+                sid: _matchPrev[1],
+                previd: _matchPrev[2],
+                nextid: _matchNext[2],
+            },
             title: $('#nr_title').text().replace(reg, ''),
-            content: $('#nr1').text()
+            content: bodyCnt
         }
     });
 };
