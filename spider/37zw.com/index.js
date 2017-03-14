@@ -84,7 +84,7 @@ exports.getList = async (id,page) => {
         _match = _href.match(/(\d+)/g);
         _author = reg.exec(_author)[1];
         _list.push({
-            type: _type,
+            type: _type.replace(']', ''),
             name: _name,
             sid: _match[0],     //
             listId: _match[1],   // 小说列表ID
